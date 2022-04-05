@@ -1,10 +1,12 @@
 package com.quintrix.jfs;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
@@ -16,7 +18,7 @@ import java.util.List;
 
 public class FileIO {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     // Creating file
 
     // java.io package
@@ -59,6 +61,7 @@ public class FileIO {
     // java.nio package
     Path path = Paths.get("dataPath/test.text");
 
+    @SuppressWarnings("unused")
     boolean doesFileExist = Files.exists(path, new LinkOption[] {LinkOption.NOFOLLOW_LINKS});
 
     List<String> lines = Arrays.asList("1st line", "2nd line");
@@ -99,5 +102,31 @@ public class FileIO {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
+
+
+    // Writing to a file
+    String str = "Hello";
+    BufferedWriter writer1 = new BufferedWriter(new FileWriter("c://temp//testFile1.txt"));
+    writer1.write(str);
+    writer1.close();
+
+    FileWriter fileWriter = new FileWriter("c://temp//testFile1.txt");
+    PrintWriter printWriter = new PrintWriter(fileWriter);
+    printWriter.print("Some String");
+    printWriter.printf("Product name is %s and its price is $%d ", "iphone", 1000);
+    printWriter.close();
+
+    String fileContent = "bunch of characters go here";
+    Path path1 = Paths.get("c:/temp/samplefile7.txt");
+    Files.write(path1, fileContent.getBytes());
+
+
+    // Reading files
+
+    String actual = Files.readString(path1);
+    System.out.println(actual);
+
   }
+
+
 }
