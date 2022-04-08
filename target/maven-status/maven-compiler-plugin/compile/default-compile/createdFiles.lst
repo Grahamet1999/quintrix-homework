@@ -1,0 +1,5 @@
+com\quintrix\jfs\JSONParser.class
+com\quintrix\jfs\models\MessageRole.class
+com\quintrix\jfs\FileIO.class
+com\quintrix\jfs\App.class
+com\quintrix\jfs\ExceptionTest.class

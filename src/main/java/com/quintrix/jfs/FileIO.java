@@ -122,9 +122,9 @@ public class FileIO {
 
 
     // Reading files
-
-    String actual = Files.readString(path1);
-    System.out.println(actual);
+    //
+    // String actual = Files.readString(path1);
+    // System.out.println(actual);
 
   }
 
