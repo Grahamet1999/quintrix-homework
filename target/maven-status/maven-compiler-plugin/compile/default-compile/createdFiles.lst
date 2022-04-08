@@ -1,5 +1,7 @@
-com\quintrix\jfs\JSONParser.class
-com\quintrix\jfs\models\MessageRole.class
+com\quintrix\jfs\DatabaseTesting.class
 com\quintrix\jfs\FileIO.class
 com\quintrix\jfs\App.class
+com\quintrix\jfs\JSONParser.class
+com\quintrix\jfs\models\MessageRole.class
 com\quintrix\jfs\ExceptionTest.class
+com\quintrix\jfs\models\DatabaseModel.class
