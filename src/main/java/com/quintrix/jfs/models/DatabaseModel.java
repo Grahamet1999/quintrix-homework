@@ -3,8 +3,10 @@ package com.quintrix.jfs.models;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DatabaseModel {
 
@@ -96,6 +98,30 @@ public class DatabaseModel {
       System.out.println("Delete completed");
     }
 
+  }
+
+  public ArrayList<String> selectAll(String TableName) throws Exception {
+
+    try {
+
+      Connection connection = getConnection();
+      PreparedStatement search =
+          connection.prepareStatement("SELECT id,first,last FROM " + TableName);
+      ResultSet result = search.executeQuery();
+
+      ArrayList<String> array = new ArrayList<String>();
+      while (result.next()) {
+        String temp = result.getString("id") + " " + result.getString("first") + " "
+            + result.getString("last");
+        array.add(temp);
+      }
+      System.out.println("All records have been found");
+      return array;
+    } catch (SQLException e) {
+      System.out.println("error has occured");
+      e.printStackTrace();
+    }
+    return null;
   }
 
 

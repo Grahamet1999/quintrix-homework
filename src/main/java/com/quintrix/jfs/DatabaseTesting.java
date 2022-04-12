@@ -1,39 +1,43 @@
 package com.quintrix.jfs;
 
+import java.sql.SQLException;
 import com.quintrix.jfs.models.DatabaseModel;
 
 public class DatabaseTesting {
 
-  static final String DB_URL = "jdbc:mysql://localhost:3306/";
-  static final String USER = "root";
-  static final String PASS = "Ethantho5_";
+  static String table = "PEOPLE";
 
-
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     // TODO Auto-generated method stub
 
     DatabaseModel database = new DatabaseModel();
 
     try {
-      database.createTable("PEOPLE");
+      database.createTable(table);
     } catch (Exception e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
 
     try {
-      database.tableInsert("PEOPLE", "Robert", "Hillsman");
-      database.tableInsert("PEOPLE", "Trevor", "Clinton");
-      database.tableInsert("PEOPLE", "Simone", "Costanzo");
+      database.tableInsert(table, "Robert", "Hillsman");
+      database.tableInsert(table, "Trevor", "Clinton");
+      database.tableInsert(table, "Simone", "Costanzo");
     } catch (Exception e) {
       e.printStackTrace();
     }
 
     try {
-      database.tableDelete("PEOPLE", "Robert", "Hillsman");
-      database.tableDelete("PEOPLE", "Trevor", "Clinton");
-      database.tableDelete("PEOPLE", "Simone", "Costanzo");
+      // database.tableDelete(table, "Robert", "Hillsman");
+      // database.tableDelete(table, "Trevor", "Clinton");
+      database.tableDelete(table, "Simone", "Costanzo");
     } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    try {
+      System.out.println(database.selectAll(table));
+    } catch (SQLException e) {
       e.printStackTrace();
     }
 

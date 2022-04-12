@@ -17,7 +17,7 @@ public class App {
     char lastLetter = '\r';
 
     // byte
-    byte b = 100;
+    byte c = 100;
 
     // short
     short s = 30000;
@@ -48,5 +48,9 @@ public class App {
     System.out.println("Overflow example double: " + ddd);
 
     System.out.println("Hello World!");
+
+    TestFP testFp = (a, b) -> a + b;
+
   }
+
 }
