@@ -12,7 +12,7 @@ public class DatabaseModel {
 
   static final String DB_URL = "jdbc:mysql://localhost/";
   static final String USER = "root";
-  static final String PASS = "Ethantho5_";
+  static final String PASS = "*********";
 
 
   public static Connection getConnection() throws Exception {
